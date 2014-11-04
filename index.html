@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<title>Prueba de Polymer and Maps</title>
+	<script src="bower_components/platform/platform.js"></script>
+	<link rel="stylesheet" type="text/css" href="estilos.css">
+	<link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
+	<link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+	<link rel="import" href="bower_components/core-menu/core-menu.html">
+	<link rel="import" href="bower_components/core-item/core-item.html">
+	<link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+	<link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+	<link rel="import" href="bower_components/core-input/core-input.html">
+	<link rel="import" href="bower_components/core-menu/core-submenu.html">
+	<link rel="import" href="bower_components/google-map/google-map.html">
+	<link rel="import" href="bower_components/google-map/google-map-search.html">
+	<script src="bower_components/angular/angular.js"></script>
+</head>
+<body>
+    <core-scaffold id="core_scaffold">
+      <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
+        <core-toolbar id="core_toolbar">
+          <core-input willvalidate placeholder="Type something..." id="core_input"></core-input>
+        </core-toolbar>
+        <core-menu valueattr="label" id="core_menu" theme="core-light-theme">
+        <core-item id="core_item1" icon="account-box" label="Cuenta" horizontal center layout></core-item>
+          <core-item id="core_item" icon="settings" label="Configuracion" horizontal center layout></core-item>
+        </core-menu>
+      </core-header-panel>
+      <div id="div" tool>FindYourPet</div>
+      <google-map latitude="{{ $.google_map_search.result.latitude }}" longitude="{{ $.google_map_search.result.longitude }}" zoom="15" id="google_map"></google-map>
+      <google-map-search map="{{ $.google_map.map }}" query="{{ $.core_input.value }}" id="google_map_search"></google-map-search>
+    </core-scaffold>
+</body>
+</html>
