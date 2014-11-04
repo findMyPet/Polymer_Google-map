@@ -19,6 +19,7 @@
 	<link rel="import" href="bower_components/google-map/google-map.html">
 	<link rel="import" href="bower_components/google-map/google-map-search.html">
 	<script src="bower_components/angular/angular.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
     <core-scaffold id="core_scaffold">
@@ -32,8 +33,16 @@
         </core-menu>
       </core-header-panel>
       <div id="div" tool>FindYourPet</div>
-      <google-map latitude="{{ $.google_map_search.result.latitude }}" longitude="{{ $.google_map_search.result.longitude }}" zoom="15" id="google_map"></google-map>
-      <google-map-search map="{{ $.google_map.map }}" query="{{ $.core_input.value }}" id="google_map_search"></google-map-search>
+      <template is="auto-binding">
+      <google-map-search id="buscador" map="{{map}}" query="{{$.core_input.value}}" id="google_map_search" result="{{result}}"></google-map-search>
+      <google-map map="{{map}}" latitude="{{result.latitude}}" longitude="{{result.longitude}}" zoom="15" id="google_map"></google-map>
+      
+      <div>Result: {{result.latitude}}, {{result.longitude}}</div>
+      <div>Result: {{$.core_input.value}}</div>
+      </template>
+      <script>
+      document.querySelector('google-map-search').search();
+    </script>
     </core-scaffold>
 </body>
 </html>
