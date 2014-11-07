@@ -28,30 +28,21 @@
             </core-toolbar>
 
             <template is="auto-binding" id="map"> 
-  <div>Latitude{{$.google_map.latitude}}</div>
-              <core-ajax auto url="http://localhost:3000/api/pins" params='{"latitude":"{{$.google_map.latitude}}", "longitude":"{{$.google_map.longitude}}"}'  handleAs="json" class="api-ajax" response="{{response}}"></core-ajax>
+              <core-ajax auto url="http://localhost:3000/api/pins" params='{"swLn":"{{$.google_map.sw.ln}}", "swLt":"{{$.google_map.sw.lt}}", "neLn": "{{$.google_map.ne.ln}}", "neLt": "{{$.google_map.ne.lt}}"}'  handleAs="json" class="api-ajax" response="{{response}}"></core-ajax>
 
 
                 <google-map-search id="buscador" map="{{map}}" query="{{$.core_input.value}}" id="google_map_search" result="{{location}}"></google-map-search>
                 <google-map map="{{map}}" latitude="{{location.latitude}}" longitude="{{location.longitude}}" zoom="17" id="google_map" disableDefaultUI>
-                    <google-map-marker latitude="{{location.latitude}}" longitude="{{location.longitude}}"></google-map-marker>
                     <template repeat="{{response}}" class="template-ajax">
-                        <google-map-marker latitude="{{obj.location[1]}}" longitude="{{obj.location[0]}}"></google-map-marker>
-                        <div>{{obj.location[1]}} {{obj.location[0]}}</div>
-
+                        <google-map-marker latitude="{{location[1]}}" longitude="{{location[0]}}"></google-map-marker>
                     </template>
                 </google-map>
-                <div>Zoom {{$.google_map.zoom}}</div>
                 <div id="search-box">
-                <core-field>
-                <core-input willvalidate placeholder="Type something..." id="core_input"></core-input>
-                <core-icon icon="icons:search"></core-icon>
-                </core-field>
+                  <core-field>
+                    <core-input willvalidate placeholder="Type something..." id="core_input"></core-input>
+                    <core-icon icon="icons:search"></core-icon>
+                  </core-field>
                 </div>
-
-
-                <div>location: latitude{{location.latitude}}, {{location.longitude}}</div>
-                <div>elocation: {{location.latitude}}</div>
                 <script>
                     // Wait for 'polymer-ready'. Ensures the element is upgraded.
                     window.addEventListener('polymer-ready', function(e) {
@@ -91,6 +82,5 @@
         console.log(map.location); 
     }
   </script>
-  <script src="bower_components/angular/angular.js"></script>
 </body>
-</html>|
+</html>
