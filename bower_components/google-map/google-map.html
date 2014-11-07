@@ -173,6 +173,7 @@ child of `google-map`.
         });
         this.contentChanged();
         setupDragHandler_.bind(this)();
+        this.bounds = this.map.getBounds();
       },
 
       attributeChanged: function(attrName, oldVal, newVal) {
@@ -461,11 +462,9 @@ Fired when the Maps API has fully loaded.
 
     mapApiLoaded: function() {
       this.map = new google.maps.Map(this.$.map, this.getMapOptions());
-
       this.updateCenter();
       this.updateMarkers();
       this.addMapListeners();
-
       this.fire('google-map-ready');
     },
 
@@ -671,6 +670,19 @@ Fired when the Maps API has fully loaded.
 
       google.maps.event.addListener(this.map, 'zoom_changed', function() {
         this.zoom = this.map.getZoom();
+      }.bind(this));
+
+      //Coordenadas SO y NE del viewport. Necesarias para cálculo con la API.
+      google.maps.event.addListener(this.map, 'idle', function() {
+        var bounds =  this.map.getBounds();
+        this.ne = {
+          "ln": bounds.getNorthEast().B,
+          "lt": bounds.getNorthEast().k
+        }
+        this.sw = {
+          "ln": bounds.getSouthWest().B,
+          "lt": bounds.getSouthWest().k
+        }
       }.bind(this));
     }
 
