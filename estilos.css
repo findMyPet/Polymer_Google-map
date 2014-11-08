@@ -59,13 +59,13 @@
         top: 290px;
         position: absolute;
       }
-      #login{
-        left: 85%;
+      /*#login{
+        left: 76%;
         height: 28px;
         width: 28px;
       }
       #registro{
-        left: 87%;
+        left: 79%;
         height: 28px;
         width: 28px;
       }
@@ -78,4 +78,8 @@
         left: 70%;
         height: 28px;
         width: 28px;
+      }*/
+
+      core-field {
+        margin: 10px 0;
       }
