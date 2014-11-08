@@ -59,3 +59,23 @@
         top: 290px;
         position: absolute;
       }
+      #login{
+        left: 85%;
+        height: 28px;
+        width: 28px;
+      }
+      #registro{
+        left: 87%;
+        height: 28px;
+        width: 28px;
+      }
+       #perdi{
+        left: 73%;
+        height: 28px;
+        width: 28px;
+      }
+       #encontre{
+        left: 70%;
+        height: 28px;
+        width: 28px;
+      }

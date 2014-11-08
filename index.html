@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <title>Prueba de Polymer and Maps</title>
+    <title>Find my pet</title>
     <script src="bower_components/platform/platform.js"></script>
     <link rel="stylesheet" type="text/css" href="estilos.css">
     <link rel="import" href="bower_components/core-ajax/core-ajax.html">
@@ -17,6 +17,10 @@
   <link rel="import" href="bower_components/core-input/core-input.html">
   <link rel="import" href="bower_components/google-map/google-map.html">
   <link rel="import" href="bower_components/google-map/google-map-search.html">
+  <link rel="import" href="components/core-icon/core-icon.html">
+  <link rel="import" href="components/paper-dialog/paper-dialog.html">
+
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 </head>
@@ -24,7 +28,18 @@
 
         <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
             <core-toolbar id="core_toolbar">
-                <span>Tiulo</span>
+                <span>¡Find my Pet!</span>
+                <core-icon id="login" icon="account-box"></core-icon>
+                <a href="/registro.html" id="registro">
+                  <core-icon icon="create" href="/registro.html"></core-icon>
+                </a>
+                <core-icon id="encontre" icon="check"></core-icon>
+                <core-icon id="perdi" icon="search"></core-icon>
+                <paper-dialog heading="Registro" id="registro">
+                  <core-icon icon="create" href="/registro.html"></core-icon>
+                </paper-dialog>
+
+
             </core-toolbar>
 
             <template is="auto-binding" id="map"> 
