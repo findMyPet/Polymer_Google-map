@@ -27,6 +27,8 @@
         <link rel="import" href="bower_components/core-selector/core-selector.html">
         <link rel="import" href="bower_components/polymer/polymer.html">
         <link rel="import" href="bower_components/google-apis/google-apis.html">
+        <link rel="import" href="bower_components/paper-radio-button/paper-radio-button.html">
+        <link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html">
 
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -62,45 +64,49 @@
                 selected="{{color}}" valueattr="value" selectedProperty="checked" 
                 activateEvent="change"></core-selector>
                 <form id="myForm">
-                    <label><input type="radio" name="color" value="red"> Macho</label> <br>
-                    <label><input type="radio" name="color" value="green"> Hembra</label> <br> 
-                    <label><input type="radio" name="color" value="green"> Desconozco</label> <br> 
+                <paper-radio-group selected="Macho">
+                    <paper-radio-button name="Macho" label="Macho"></paper-radio-button>
+                    <paper-radio-button name="Hembra" label="Hembra"></paper-radio-button>
+                </paper-radio-group>
                 </form>
                 <paper-input label="Raza"></paper-input>
                 <core-selector target="{{$.myForm}}" itemsSelector="input[type=radio]" 
                   selected="{{color}}" valueattr="value" selectedProperty="checked" 
                   activateEvent="change"></core-selector>
                 <h3>Tamaño:</h3>
-                <form id="myForm">
-                    <label><input type="radio" name="color" value="red"> chico</label> <br>
-                    <label><input type="radio" name="color" value="green"> mediano</label> <br> 
-                    <label><input type="radio" name="color" value="green"> grande</label> <br> 
-                </form>
-                <core-input placeholder="¡Pon una descripcion del perro aqui!"></core-input>
+                <paper-radio-group selected="Chico">
+                    <paper-radio-button name="Chico" label="Chico"></paper-radio-button>
+                    <paper-radio-button name="Mediano" label="Mediano"></paper-radio-button>
+                    <paper-radio-button name="Grande" label="Grande"></paper-radio-button>
+                </paper-radio-group>
+               
+                <br><br> <core-input placeholder="¡Pon una descripcion del perro aqui!"></core-input>
                 <paper-button label="Aceptar" affirmative autofocus></paper-button>
             </paper-dialog>
 
             <paper-dialog id="buscar" heading="Perdi a mi perro" transition="paper-dialog-transition-bottom">
-                <paper-input label="Nombre del perro"></paper-input>
                 <core-selector target="{{$.myForm}}" itemsSelector="input[type=radio]" 
-              selected="{{color}}" valueattr="value" selectedProperty="checked" 
-              activateEvent="change"></core-selector>
+                selected="{{color}}" valueattr="value" selectedProperty="checked" 
+                activateEvent="change"></core-selector>
                 <form id="myForm">
-                    <label><input type="radio" name="color" value="red"> Macho</label> <br>
-                    <label><input type="radio" name="color" value="green"> Hembra</label> <br> 
-                    <label><input type="radio" name="color" value="green"> Desconozco</label> <br> 
+                <paper-radio-group selected="Macho">
+                    <paper-radio-button name="Macho" label="Macho"></paper-radio-button>
+                    <paper-radio-button name="Hembra" label="Hembra"></paper-radio-button>
+                </paper-radio-group>
                 </form>
                 <paper-input label="Raza"></paper-input>
                 <core-selector target="{{$.myForm}}" itemsSelector="input[type=radio]" 
-              selected="{{color}}" valueattr="value" selectedProperty="checked" 
-              activateEvent="change"></core-selector>
+                  selected="{{color}}" valueattr="value" selectedProperty="checked" 
+                  activateEvent="change"></core-selector>
                 <h3>Tamaño:</h3>
-                <form id="myForm">
-                    <label><input type="radio" name="color" value="red"> chico</label> <br>
-                    <label><input type="radio" name="color" value="green"> mediano</label> <br> 
-                    <label><input type="radio" name="color" value="green"> grande</label> <br> 
-                </form>
-                <core-input placeholder="¡Pon una descripcion del perro aqui!"></core-input>       
+                <paper-radio-group selected="Chico">
+                    <paper-radio-button name="Chico" label="Chico"></paper-radio-button>
+                    <paper-radio-button name="Mediano" label="Mediano"></paper-radio-button>
+                    <paper-radio-button name="Grande" label="Grande"></paper-radio-button>
+                </paper-radio-group>
+               
+                <br><br> <core-input placeholder="¡Pon una descripcion del perro aqui!"></core-input>
+                <paper-button label="Aceptar" affirmative autofocus></paper-button>      
             </paper-dialog>
 
 
