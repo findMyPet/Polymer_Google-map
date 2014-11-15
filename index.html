@@ -1,354 +1,261 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="mobile-web-app-capable" content="yes">
-        <title>Find my pet</title>
-        <script src="bower_components/platform/platform.js"></script>
-        <link rel="stylesheet" type="text/css" href="estilos.css">
-        <link rel="import" href="bower_components/core-ajax/core-ajax.html">
-        <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
-        <link rel="import" href="bower_components/core-menu/core-menu.html">
-        <link rel="import" href="bower_components/core-item/core-item.html">
-        <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
-        <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
-        <link rel="import" href="bower_components/core-input/core-input.html">
-        <link rel="import" href="bower_components/google-map/google-map.html">
-        <link rel="import" href="bower_components/google-map/google-map-search.html">
-        <link rel="import" href="bower_components/core-icon/core-icon.html">
-        <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
-        <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
-        <link rel="import" href="bower_components/paper-button/paper-button.html">
-        <link rel="import" href="bower_components/paper-dialog/paper-dialog-transition.html">
-        <link rel="import" href="bower_components/core-field/core-field.html">
-        <link rel="import" href="bower_components/paper-input/paper-input.html">
-        <link rel="import" href="bower_components/core-selector/core-selector.html">
-        <link rel="import" href="bower_components/polymer/polymer.html">
-        <link rel="import" href="bower_components/google-apis/google-apis.html">
-        <link rel="import" href="bower_components/paper-radio-button/paper-radio-button.html">
-        <link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html">
+  <head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width, minimum-scale = 1.0, initial-scale = 1.0, user-scalable = yes">
+    <meta name = "apple-mobile-web-app-capable" content = "yes">
+    <meta name = "mobile-web-app-capable" content = "yes">
+
+    <title>Find my pet</title>
+    
+    <script src = "bower_components/platform/platform.js"></script>
+    <link rel = "stylesheet" type = "text/css" href = "estilos.css">
+    <link rel = "import" href = "bower_components/core-ajax/core-ajax.html">
+    <link rel = "import" href = "bower_components/core-field/core-field.html">
+    <link rel = "import" href = "bower_components/core-header-panel/core-header-panel.html">
+    <link rel = "import" href = "bower_components/core-icon-button/core-icon-button.html">
+    <link rel = "import" href = "bower_components/core-icon-button/core-icon-button.html">
+    <link rel = "import" href = "bower_components/core-icon/core-icon.html">
+    <link rel = "import" href = "bower_components/core-input/core-input.html">
+    <link rel = "import" href = "bower_components/core-item/core-item.html">
+    <link rel = "import" href = "bower_components/core-menu/core-menu.html">
+    <link rel = "import" href = "bower_components/core-selector/core-selector.html">
+    <link rel = "import" href = "bower_components/core-toolbar/core-toolbar.html">
+    <link rel = "import" href = "bower_components/core-tooltip/core-tooltip.html">
+    <link rel = "import" href = "bower_components/google-apis/google-apis.html">
+    <link rel = "import" href = "bower_components/google-map/google-map-search.html">
+    <link rel = "import" href = "bower_components/google-map/google-map.html">
+    <link rel = "import" href = "bower_components/paper-button/paper-button.html">
+    <link rel = "import" href = "bower_components/paper-dialog/paper-dialog-transition.html">
+    <link rel = "import" href = "bower_components/paper-dialog/paper-dialog.html">
+    <link rel = "import" href = "bower_components/paper-input/paper-input.html">
+    <link rel = "import" href = "bower_components/paper-radio-button/paper-radio-button.html">
+    <link rel = "import" href = "bower_components/paper-radio-group/paper-radio-group.html">
+    <link rel = "import" href = "bower_components/polymer/polymer.html">
+    <link rel = "import" href = "bower_components/paper-item/paper-item.html">
+    <link rel = "import" href = "bower_components/paper-tabs/paper-tabs.html">
 
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    </head>
+    <script src = "//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </head>
 
-    <body fullbleed vertical layout unresolved>
-        <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
-            <core-toolbar id="core_toolbar">
-                <span flex>¡Find my Pet!</span>
-                <core-icon-button icon="account-box" onclick="toogleDialog('login')"></core-icon-button>
-                <core-icon-button icon="create" onclick="toogleDialog('registro')"></core-icon-button>
-                <core-icon-button icon="check" onclick="toogleDialog('encontre')"></core-icon-button>
-                <core-icon-button icon="search" onclick="toogleDialog('buscar')"></core-icon-button>
-            </core-toolbar>
+    <body>
+      <div>
+        <core-header-panel mode = "seamed" id = "core_header_panel" navigation >
+          <core-toolbar id = "core_toolbar">
+            <span flex>¡Find my Pet!</span>
+            <core-icon-button icon = "account-box" onclick = "toogleDialog('login')"></core-icon-button>
+            <core-icon-button icon = "create" onclick = "toogleDialog('registro')"></core-icon-button>
+            <core-icon-button icon = "check" onclick = "toogleDialog('encontre')"></core-icon-button>
+            <core-icon-button icon = "search" onclick = "toogleDialog('buscar')"></core-icon-button>
+          </core-toolbar>
+        </core-header-panel>
+      </div>
 
-            <paper-dialog id="registro" heading="Registro" transition="paper-dialog-transition-bottom">
-                <paper-input label="Nombre de usuario"></paper-input>
-                <paper-input label="e-mail"></paper-input>
-                <paper-input label="contraseña"></paper-input>
-                <paper-input label="confirma contraseña"></paper-input>
-                <paper-button label="Aceptar" affirmative autofocus></paper-button>
-            </paper-dialog>
+      <div horizontal layout flex >
+          <div class = "cuarenta">
+            <br><br>
+              <paper-tabs selected="0">            
+                <paper-tab > Todos
+                  <a href = "#listaTodos" center-center layout></a>
+                </paper-tab>
+                <paper-tab> Perdidos
+                  <a href = "#listaPerdidos" center-center layout></a>
+                </paper-tab>
+                <paper-tab> Encontrados
+                  <a href = "#listaEncontrados" center-center layout></a>
+                </paper-tab> 
+              </paper-tabs>
+          
+          <div id="listaTodos">
+            <h1>Todos</h1>
+              <core-item src="imagenes/panfilo.png" class="foto">
+                <div flex>
+                  <div class="name">Panfilo</div>
+                  <div class="descripcionCorta"> Gordito pero sexy! </div>
+                  <div class="address">Mi casa es tu casa </div>
+                </div>
+              <core-icon icon="more-vert"></core-icon>
+            </core-item>
+          </div>
 
-            <paper-dialog id="login" heading="LogIn" transition="paper-dialog-transition-bottom">
-                <paper-input label="Nombre de usuario"></paper-input>
-                <paper-input label="contraseña"></paper-input>
-                <paper-button label="Aceptar" affirmative autofocus></paper-button>
-            </paper-dialog>
+          <div id="listaEncontrados">
+            <h1>Encontrados</h1>
+              <core-item src="imagenes/panfilo.png" class="foto">
+                <div flex>
+                  <div class="name">Panfilo</div>
+                  <div class="descripcionCorta"> Gordito pero sexy! </div>
+                  <div class="address">Mi casa es tu casa </div>
+                </div>
+              <core-icon icon="more-vert"></core-icon>
+            </core-item>
+          </div>
 
-            <paper-dialog id="encontre" heading="¡Enconre un perro!" transition="paper-dialog-transition-bottom">
+          <div id="listaPerdidos">
+            <h1>Perdidos</h1>
+              <core-item src="imagenes/panfilo.png" class="foto">
+                <div flex>
+                  <div class="name">Panfilo</div>
+                  <div class="descripcionCorta"> Gordito pero sexy! </div>
+                  <div class="address">Mi casa es tu casa </div>
+                </div>
+              <core-icon icon="more-vert"></core-icon>
+            </core-item>
+          </div>
 
-                <core-selector target="{{$.myForm}}" itemsSelector="input[type=radio]" 
-                selected="{{color}}" valueattr="value" selectedProperty="checked" 
-                activateEvent="change"></core-selector>
-                <form id="myForm">
-                <paper-radio-group selected="Macho">
-                    <paper-radio-button name="Macho" label="Macho"></paper-radio-button>
-                    <paper-radio-button name="Hembra" label="Hembra"></paper-radio-button>
-                </paper-radio-group>
-                </form>
-                <paper-input label="Raza"></paper-input>
-                <core-selector target="{{$.myForm}}" itemsSelector="input[type=radio]" 
-                  selected="{{color}}" valueattr="value" selectedProperty="checked" 
-                  activateEvent="change"></core-selector>
-                <h3>Tamaño:</h3>
-                <paper-radio-group selected="Chico">
-                    <paper-radio-button name="Chico" label="Chico"></paper-radio-button>
-                    <paper-radio-button name="Mediano" label="Mediano"></paper-radio-button>
-                    <paper-radio-button name="Grande" label="Grande"></paper-radio-button>
-                </paper-radio-group>
-               
-                <br><br> <core-input placeholder="¡Pon una descripcion del perro aqui!"></core-input>
-                <paper-button label="Aceptar" affirmative autofocus></paper-button>
-            </paper-dialog>
-
-            <paper-dialog id="buscar" heading="Perdi a mi perro" transition="paper-dialog-transition-bottom">
-                <core-selector target="{{$.myForm}}" itemsSelector="input[type=radio]" 
-                selected="{{color}}" valueattr="value" selectedProperty="checked" 
-                activateEvent="change"></core-selector>
-                <form id="myForm">
-                <paper-radio-group selected="Macho">
-                    <paper-radio-button name="Macho" label="Macho"></paper-radio-button>
-                    <paper-radio-button name="Hembra" label="Hembra"></paper-radio-button>
-                </paper-radio-group>
-                </form>
-                <paper-input label="Raza"></paper-input>
-                <core-selector target="{{$.myForm}}" itemsSelector="input[type=radio]" 
-                  selected="{{color}}" valueattr="value" selectedProperty="checked" 
-                  activateEvent="change"></core-selector>
-                <h3>Tamaño:</h3>
-                <paper-radio-group selected="Chico">
-                    <paper-radio-button name="Chico" label="Chico"></paper-radio-button>
-                    <paper-radio-button name="Mediano" label="Mediano"></paper-radio-button>
-                    <paper-radio-button name="Grande" label="Grande"></paper-radio-button>
-                </paper-radio-group>
-               
-                <br><br> <core-input placeholder="¡Pon una descripcion del perro aqui!"></core-input>
-                <paper-button label="Aceptar" affirmative autofocus></paper-button>      
-            </paper-dialog>
-
-
-
-<polymer-element name="google-map-marker" attributes="icon">
-<template>
-  <style>
-    :host {
-      display: none;
-    }
-  </style>
-</template>
-<script>
-  (function() {
-    Polymer({
-      /**
-       * A Google Maps marker object.
-       *
-       * @property marker
-       * @type google.maps.Marker
-       * @default null
-       */
-      marker: null,
-      /**
-       * The Google map object.
-       *
-       * @property map
-       * @type google.maps.Map
-       * @default null
-       */
-      map: null,
-      /**
-       * A Google Map Infowindow object.
-       *
-       * @property info
-       * @type google.map.InfoWindow
-       * @default null
-       */
-      info: null,
-      /**
-       * Image URL for the marker icon.
-       *
-       * @attribute icon
-       * @type string
-       * @default null
-       */
-      icon: null,
-      publish: {
-        /**
-         * The marker's longitude coordinate.
-         *
-         * @attribute longitude
-         * @type number
-         * @default null
-         */
-        longitude: {value: null, reflect: true},
-        /**
-         * The marker's latitude coordinate.
-         *
-         * @attribute latitude
-         * @type number
-         * @default null
-         */
-        latitude: {value: null, reflect: true}
-      },
-      observe: {
-        latitude: 'updatePosition',
-        longitude: 'updatePosition',
-      },
-      detached: function() {
-        this.marker.setMap(null);
-      },
-      attached: function() {
-        // If element is added back to DOM, put it back on the map.
-        if (this.marker) {
-          this.marker.setMap(this.map);
-        }
-      },
-      updatePosition: function() {
-        if (this.marker && this.latitude != null && this.longitude != null) {
-          this.marker.setPosition({
-            lat: parseFloat(this.latitude),
-            lng: parseFloat(this.longitude)
-          });
-        }
-      },
-      iconChanged: function() {
-        if (this.marker) {
-          this.marker.setIcon(this.icon);
-        }
-      },
-      mapChanged: function() {
-        if (this.map && this.map instanceof google.maps.Map) {
-          this.mapReady();
-        }
-      },
-      contentChanged: function() {
-        this.onMutation(this, this.contentChanged); // Watch for future updates.
-        var content = this.innerHTML;
-        if (content) {
-          if (!this.info) {
-            // Create a new infowindow
-            this.info = new google.maps.InfoWindow();
-            this.infoHandler_ = google.maps.event.addListener(this.marker, 'click', function() {
-              this.info.open(this.map, this.marker);
-            }.bind(this));
-          }
-          this.info.setContent(content);
-        } else {
-          if (this.info) {
-            // Destroy the existing infowindow.  It doesn't make sense to have an empty one.
-            google.maps.event.removeListener(this.infoHandler_);
-            this.info = null;
-          }
-        }
-      },
-      mapReady: function() {
-        this.marker = new google.maps.Marker({
-          map: this.map,
-          position: new google.maps.LatLng(this.latitude, this.longitude),
-          title: this.title,
-          draggable: this.draggable,
-          visible: !this.hidden,
-          icon: this.icon
-        });
-        this.contentChanged();
-        setupDragHandler_.bind(this)();
-      },
-      attributeChanged: function(attrName, oldVal, newVal) {
-        if (!this.marker) {
-          return;
-        }
-        // Cannot use *Changed watchers for native properties.
-        switch (attrName) {
-          case 'hidden':
-            this.marker.setVisible(!this.hidden);
-            break;
-          case 'draggable':
-            this.marker.setDraggable(this.draggable);
-            setupDragHandler_.bind(this)();
-            break;
-          case 'title':
-            this.marker.setTitle(this.title);
-            break;
-        }
-      }
-    });
-    function onDragEnd_(e, details, sender) {
-      this.latitude = e.latLng.lat();
-      this.longitude = e.latLng.lng();
-    }
-    function setupDragHandler_() {
-      if (this.draggable) {
-        this.dragHandler_ = google.maps.event.addListener(
-            this.marker, 'dragend', onDragEnd_.bind(this));
-      } else {
-        google.maps.event.removeListener(this.dragHandler_);
-        this.dragHandler_ = null;
-      }
-    }
-  })();
-</script>
-</polymer-element>
-
-
-
-
-
-
-
-      <template is="auto-binding" id="map"> 
-         <div>Latitude{{$.google_map.latitude}}</div>
-            <core-ajax auto url="http://localhost:3000/api/pins" params='{"latitude":"{{$.google_map.latitude}}", "longitude":"{{$.google_map.longitude}}"}'  handleAs="json" class="api-ajax" response="{{response}}"></core-ajax>
-            <google-map-search id="buscador" map="{{map}}" query="{{$.core_input.value}}" id="google_map_search" result="{{location}}"></google-map-search>
-            <google-map map="{{map}}" latitude="{{location.latitude}}" longitude="{{location.longitude}}" zoom="17" id="google_map" disableDefaultUI>
-               <google-map-marker latitude="{{location.latitude}}" longitude="{{location.longitude}}"></google-map-marker>
-               <template repeat="{{response}}" class="template-ajax">
-                  <google-map-marker latitude="{{obj.location[1]}}" longitude="{{obj.location[0]}}"></google-map-marker>
-                  <div>{{obj.location[1]}} {{obj.location[0]}}</div>
-               </template>
-            </google-map>
-            <div>Zoom {{$.google_map.zoom}}</div>
-            <div id="search-box">
-               <core-field>
-                  <core-input willvalidate placeholder="Type something..." id="core_input"></core-input>
-                  <core-icon icon="icons:search"></core-icon>
-               </core-field>
-            </div>
-            <div>location: latitude{{location.latitude}}, {{location.longitude}}</div>
-            <div>elocation: {{location.latitude}}</div>
-            <script>
-                    // Wait for 'polymer-ready'. Ensures the element is upgraded.
-                    window.addEventListener('polymer-ready', function(e) {
-                      var ajax = document.querySelector('.api-ajax');
-
-                      // Respond to events it fires.
-                      ajax.addEventListener('core-response', function(e) {
-                         document.querySelector('.template-ajax').model = {
-                            response: e.detail.response
-                          };
-                      });
-
-                      ajax.go(); // Call its API methods.
-                    });
-                </script>
-      </template>
-   </core-header-panel>
-   <div class="content">
+          </div>
         
+          <div flex>
+            <template is = "auto-binding" id = "map"> 
+              <!--<core-ajax auto url = "http://localhost:3000/api/pins" params = '{"latitude":"{{$.google_map.latitude}}", "longitude":"{{$.google_map.longitude}}"}'  handleAs = "json" class = "api-ajax" response = "{{response}}"></core-ajax>-->
+              <google-map-search id = "buscador" map = "{{map}}" query = "{{$.core_input.value}}" id = "google_map_search" result = "{{location}}"></google-map-search>
+              <google-map map = "{{map}}" latitude = "{{location.latitude}}" longitude = "{{location.longitude}}" zoom = "17" id = "google_map" disableDefaultUI>
+                <google-map-marker latitude = "19.412152799999998" longitude = "-99.18065329999999" draggable = "true"></google-map-marker>
+                  <template repeat = "{{response}}" class = "template-ajax">
+                    <google-map-marker latitude = "{{obj.location[1]}}" longitude = "{{obj.location[0]}}"></google-map-marker>
+                    <div>{{obj.location[1]}} {{obj.location[0]}}</div>
+                  </template>
+              </google-map>
+              <!--<div id = "search-box">
+                <core-field>
+                  <core-input willvalidate placeholder = "Type something..." id = "core_input"></core-input>
+                  <core-icon icon = "icons:search"></core-icon>
+                </core-field>
+              </div>-->
+            </template>
+          </div>
         </div>
-        <script>
-        document.querySelector('google-map-search').search();
-        </script>
 
+      <paper-dialog id = "registro" heading = "Registro" transition = "paper-dialog-transition-bottom">
+        <paper-input label = "Nombre de usuario"></paper-input>
+        <paper-input label = "e-mail"></paper-input>
+        <paper-input label = "contraseña"></paper-input>
+        <paper-input label = "confirma contraseña"></paper-input>
+        <paper-button label = "Aceptar" affirmative autofocus></paper-button>
+      </paper-dialog>
+
+      <paper-dialog id = "login" heading = "LogIn" transition = "paper-dialog-transition-bottom">
+        <paper-input label = "Nombre de usuario"></paper-input>
+        <paper-input label = "contraseña"></paper-input>
+        <paper-button label = "Aceptar" affirmative autofocus></paper-button>
+      </paper-dialog>
+
+      <paper-dialog id = "encontre" heading = "¡Enconre un perro!" transition = "paper-dialog-transition-bottom">
+
+        <core-selector target = "{{$.myForm}}" itemsSelector = "input[type = radio]" 
+        selected = "{{color}}" valueattr = "value" selectedProperty = "checked" 
+        activateEvent = "change"></core-selector>
+
+        <form id = "myForm">
+          <paper-radio-group selected = "Macho">
+            <paper-radio-button class = "blue" name = "Macho" label = "Macho"></paper-radio-button>
+            <paper-radio-button name = "Hembra" label = "Hembra"></paper-radio-button>
+          </paper-radio-group>
+        </form>
+
+        <paper-input label = "Raza"></paper-input>
+
+        <core-selector target = "{{$.myForm}}" itemsSelector = "input[type = radio]" 
+          selected = "{{color}}" valueattr = "value" selectedProperty = "checked" 
+          activateEvent = "change"></core-selector>
+
+        <h3>Tamaño:</h3>
+        <paper-radio-group selected = "Chico">
+          <paper-radio-button name = "Chico" label = "Chico"></paper-radio-button>
+          <paper-radio-button name = "Mediano" label = "Mediano"></paper-radio-button>
+          <paper-radio-button name = "Grande" label = "Grande"></paper-radio-button>
+        </paper-radio-group>
+       
+        <br>
+        <br>
+
+        <core-input placeholder = "¡Pon una descripcion del perro aqui!"></core-input>
+        <paper-button label = "Aceptar" affirmative autofocus></paper-button>
+      </paper-dialog>
+
+      <paper-dialog id = "buscar" heading = "Perdi a mi perro" transition = "paper-dialog-transition-bottom">
+        <core-selector target = "{{$.myForm}}" itemsSelector = "input[type = radio]" 
+        selected = "{{color}}" valueattr = "value" selectedProperty = "checked" 
+        activateEvent = "change"></core-selector>
+        <form id = "myForm">
+        <paper-radio-group selected = "Macho">
+          <paper-radio-button name = "Macho" label = "Macho"></paper-radio-button>
+          <paper-radio-button name = "Hembra" label = "Hembra"></paper-radio-button>
+        </paper-radio-group>
+        </form>
+        <paper-input label = "Raza"></paper-input>
+        <core-selector target = "{{$.myForm}}" itemsSelector = "input[type = radio]" 
+          selected = "{{color}}" valueattr = "value" selectedProperty = "checked" 
+          activateEvent = "change"></core-selector>
+        <h3>Tamaño:</h3>
+        <paper-radio-group selected = "Chico">
+          <paper-radio-button name = "Chico" label = "Chico"></paper-radio-button>
+          <paper-radio-button name = "Mediano" label = "Mediano"></paper-radio-button>
+          <paper-radio-button name = "Grande" label = "Grande"></paper-radio-button>
+        </paper-radio-group>
+       
+        <br><br> <core-input placeholder = "¡Pon una descripcion del perro aqui!"></core-input>
+        <paper-button label = "Aceptar" affirmative autofocus></paper-button>      
+      </paper-dialog>
+
+     
+
+    <script>
+      document.querySelector('google-map-search').search();
+    </script>
   
-  <script type="text/javascript">
-    var map = document.querySelector("#map");
+    <script type = "text/javascript">
+      var map  =  document.querySelector("#map");
 
-    navigator.geolocation.getCurrentPosition(GetLocation);
-    function GetLocation(location) {
-        var geo = function(latitude, longitude, accuracy){
-            this.latitude = location.coords.latitude 
-            this.longitude = location.coords.longitude 
-            this.accuracy = location.coords.accuracy 
+      navigator.geolocation.getCurrentPosition(GetLocation);
+      function GetLocation(location) {
+          var geo  =  function(latitude, longitude, accuracy){
+              this.latitude  =  location.coords.latitude 
+              this.longitude  =  location.coords.longitude 
+              this.accuracy  =  location.coords.accuracy 
+          }
+          map.location  =  new geo();
+          console.log(map.location); 
+      }
+
+      function clonarPerros(){
+        var i;
+        for(i=0; i<15; i++){
+          
         }
-        map.location = new geo();
-        console.log(map.location); 
-    }
+      }
 
-    function toogleDialog(id) {
-      var dialog = document.querySelector('#' + id);
-      dialog.toggle();
-    }
+      function toogleDialog(id) {
+        var dialog  =  document.querySelector('#' + id);
+        dialog.toggle();
+      }
 
-   Polymer('selector-examples', {
-      ready: function() {
-          this.multiSelected = [1, 3];
-          this.color = 'green';
-        }
-      });
-  </script>
-  <script src="bower_components/angular/angular.js"></script>
- 
-</body>
+     Polymer('selector-examples', {
+        ready: function() {
+            this.multiSelected  =  [1, 3];
+            this.color  =  'green';
+          }
+        });
+    </script>
+
+    <script>
+      /* Wait for 'polymer-ready'. Ensures the element is upgraded.
+      window.addEventListener('polymer-ready', function(e) {
+        var ajax  =  document.querySelector('.api-ajax');
+
+        // Respond to events it fires.
+        ajax.addEventListener('core-response', function(e) {
+           document.querySelector('.template-ajax').model  =  {
+              response: e.detail.response
+            };
+        });
+
+        ajax.go(); // Call its API methods.
+      });*/
+    </script>
+
+    
+    <script src = "bower_components/angular/angular.js"></script>
+  
+  </body>
 </html>|
